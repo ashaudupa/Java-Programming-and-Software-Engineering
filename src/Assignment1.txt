@@ -1,0 +1,27 @@
+Assignment 1: Finding a Gene
+
+A gene for a protein has a start codon, followed by a substring that is a multiple of 3, followed by a stop codon.
+
+Write a program that 1) finds and prints a gene in a strand of DNA by using the algorithm below, and 2) also prints the stop codon that identifies the gene. If there is not a gene in the DNA string, then both should print the empty string. See below for more details.
+
+Algorithm to identify a gene in a strand of DNA:
+
+Identify the first start codon ATG in the string.
+Identify the first occurrence of the stop codon TAG after the start codon. If the length of the substring between the start and stop codon is a multiple of three, the gene is the string from the beginning of the start codon to the end of the TAG stop codon.
+If no gene is found yet, then identify the first occurrence of the stop codon TGA after the start codon. If the length of the substring between the start and stop codon is a multiple of three, the gene is the string from the start codon to the TGA stop codon.
+If no gene is found yet, then identify the first occurrence of the stop codon TAA after the start codon. If the length of the substring between the start and stop codon is a multiple of three, the gene is the string from the start codon to the TAA stop codon.
+If no gene is found yet, then the gene returned is the empty string.
+If a gene was found, then print the gene, and also print the stop codon that was used to find the gene.
+Your program should work regardless of whether the DNA strand uses uppercase or lowercase letters.
+To solve this problem, you should do the following:
+
+Make a copy of the TagFinder program that goes with this lesson. In particular start with the methods findProtein and testing methods. This program will be easier to debug if you use small examples.
+Modify the findProtein method to use the algorithm above to identify and return a gene for a protein.
+Use the testing method to test findProtein. You should create your own test strings and be sure to test examples that use all three stop codons.
+Write a method stopCodon that has one parameter that is a String representing a gene. This method returns the stop codon of the gene. It should return the empty string if the parameter is not a gene.
+In the testing method call stopCodon to print the stop codon found in the gene.
+Here are some example strings you might want to test:
+
+“AATGCTAGTTTAAATCTGA”—This has all three stop codons. Using the algorithm above, the first start codon ATG is found. The stop codon TAG is found first but is not a multiple of three. The stop codon TGA is found next and is a multiple of three away, so “ATGCTAGTTTAAATCTGA” is the string returned.
+“ataaactatgttttaaatgt”—Using the algorithm above, the first occurrence of ATG is found. Then TAG is not found, TGA is not found, but TAA is found and is a multiple of three from ATG. The string “atgttttaa” is returned. Note that TAA occurs twice in the string. Your program should look for the first one that occurs after the start codon in the string.
+“acatgataacctaag” returns “”—Note the first TAA is found and does not work. A second TAA is a multiple of three away, but our algorithm only looks for the first occurrence of TAA immediately past the start codon.
