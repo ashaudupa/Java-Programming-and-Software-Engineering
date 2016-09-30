@@ -1,0 +1,37 @@
+Assignment
+
+This assignment is to find all the genes in a DNA string and then store them using the StorageResource class.
+ You will modify the program you wrote to find and print all genes, storing them instead of printing. 
+ You should write and test each method on small data before moving on to the next step. 
+ Then you will look for all the genes in a file and answer questions about them.
+
+Specifically, you should do the following.
+
+Make a copy of the printAll method called storeAll. 
+Instead of printing the genes found, this method should create and return a StorageResource containing the genes found.
+Write the void method named testStorageFinder. 
+This method reads in the file brca1line.fa, which is a large string of DNA and calls storeAll to find and 
+store all the genes in this large strand of DNA. It then prints the number of genes found. Note: 
+You should first make sure this method works by using one of the small DNA strands above, 
+and then replacing that with the DNA string from the file.
+Write the method cgRatio that has one String parameter dna, 
+and returns the ratio of C’s and G’s in dna as a fraction of the entire strand of DNA. 
+For example if the String were “ATGCCATAG,” then cgRatio would return 4/9 or .4444444. 
+(Hint: Recall the program that found all start tags, and use the same idea to find all C's and then G's.)
+ (Another hint: 9/2 uses integer division because you are dividing
+  an integer by an integer and Java thinks you want the result thus to be an integer. 
+  If you want the result to be a decimal number, then make sure you convert one of the integers to a decimal number
+   by changing it to a float. For example, (float) 9/2 is interpreted by Java as 9.0/2 and
+    if one of the numbers is a decimal, then Java assumes you want the result to be a decimal number.
+     Thus (float) 9/2 is 4.5.)
+Write the void method printGenes that has one parameter sr, which is a StorageResource of strings. 
+This method processes all the strings in sr and does the following:
+prints all the Strings that are longer than 60 characters
+prints the number of Strings that are longer than 60 characters
+prints the Strings whose C-G-ratio is higher than 0.35
+prints the number of strings whose C-G-ratio is higher than 0.35
+In the method testStorageFinder, call printGenes with a StorageResource of the genes found from the file brca1line.fa, 
+which you can download at http://www.dukelearntoprogram.com/course2/files.php under "All Example DNA Data,"
+ or you can download a .zip file with several DNA data files by clicking here. 
+ (Note that after you create a FileResource or URLResource,
+  you can use the method asString to create a String variable of the file.)
