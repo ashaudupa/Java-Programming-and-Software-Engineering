@@ -83,25 +83,30 @@ public class WhichCountriesExport {
         FileResource fr = new FileResource();
         
         CSVParser parser_part1 = fr.getCSVParser();
-        String country = countryInfo(parser_part1,"Germany");
+        String country = countryInfo(parser_part1,"Nauru");
         System.out.println("Country Information: ");
         System.out.println(country);
         System.out.println("----------------------------------------------");
         
         CSVParser parser_part2 = fr.getCSVParser();
-        System.out.println("List Exporters of two products Gold and Diamond are: ");
-        listExporterTwoProducts(parser_part2,"gold","diamonds");
+        //System.out.println("List Exporters of two products Gold and Diamond are: ");
+        //listExporterTwoProducts(parser_part2,"gold","diamonds");
+        System.out.println("List Exporters of two products fish and nuts are: ");
+        listExporterTwoProducts(parser_part2,"fish","nuts");
         System.out.println("----------------------------------------");
         
         
         CSVParser parser_part3 = fr.getCSVParser();
-        int number = numberOfExporters(parser_part3,"gold");
+        /*int number = numberOfExporters(parser_part3,"gold");
         System.out.println("Number of Exportsers of Gold: "+ number);
+        System.out.println("---------------------------------------");*/
+        int number = numberOfExporters(parser_part3,"sugar");
+        System.out.println("Number of Exportsers of Sugar: "+ number);
         System.out.println("---------------------------------------");
         
         CSVParser parser_part4 = fr.getCSVParser();
         System.out.println("Big Exporters in the list: ");
-        bigExporters(parser_part4,"$999,999,999");
+        bigExporters(parser_part4,"$999,999,999,999");
         
     }
     
