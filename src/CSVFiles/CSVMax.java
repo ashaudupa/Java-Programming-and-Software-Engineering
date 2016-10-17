@@ -140,13 +140,14 @@ public class CSVMax {
         
     }
     public void testFileWithColdestTemperature() {
-        String fileName = fileWithColdestTemparature();
-        System.out.println(fileName);
+        String fileName = "nc_weather\\2013\\" + fileWithColdestTemparature();
+        //System.out.println(fileName);
         File f = new File(fileName);
+        //System.out.println(f.getAbsolutePath());
         FileResource fr = new FileResource(f);
         System.out.println("ColdestDay was in File: "+fileName);
         CSVRecord coldest = coldestHourInFile(fr.getCSVParser());
-        System.out.println("Coldest Hour in file "+ coldest);
+        System.out.println("Coldest Hour in file "+ coldest.get("TemperatureF"));
         System.out.println("-------------------------------------------");
     }
     
@@ -269,11 +270,11 @@ public class CSVMax {
     public static void main(String[] args) {
         CSVMax csv = new CSVMax();
         //csv.testHottestInManyDays();
-        csv. testAverageTemperatureWithHighHumidityInFile();
+        //csv. testAverageTemperatureWithHighHumidityInFile();
         //csv.testAverageTemperatureInFile();
         //csv.testLowestHumidityInManyFiles();
         //csv.testLowestHumidityInFile(); 
-        //csv. testFileWithColdestTemperature();
+        csv. testFileWithColdestTemperature();
         //csv.testColdestHourInFile();
     }
 
